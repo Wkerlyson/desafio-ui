@@ -7,6 +7,7 @@ import {
 import { Observable } from 'rxjs';
 import { scan } from 'rxjs/operators';
 
+
 function isHttpResponse<T>(event: HttpEvent<T>): event is HttpResponse<T> {
     return event.type === HttpEventType.Response;
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
 import { Upload, upload } from '../utils/upload';
 
 @Injectable({ providedIn: 'root' })
@@ -19,6 +19,6 @@ export class UploadService {
                 reportProgress: true,
                 observe: 'events',
             })
-            .pipe(upload());
+            .pipe(upload(), shareReplay());
     }
 }
