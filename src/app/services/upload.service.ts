@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Upload, upload } from './upload';
+import { Upload, upload } from '../utils/upload';
 
 @Injectable({ providedIn: 'root' })
 export class UploadService {
