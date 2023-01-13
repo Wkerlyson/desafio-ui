@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { EMPTY, Observable } from 'rxjs';
-import { delay, tap } from 'rxjs/operators';
+import { EMPTY, Observable, throwError } from 'rxjs';
+import { catchError, delay, map, tap } from 'rxjs/operators';
 import { Upload } from './upload';
 import { UploadService } from './upload.service';
 

@@ -1,15 +1,24 @@
+<mat-toolbar color="primary">
+  <span>Desafio UI</span>
+</mat-toolbar>
+
 <mat-card>
+  <p *ngIf="upload$ | async as upload">
+    <span class="message" *ngIf="upload.state == 'DONE' ? true : false">Upload concluido com sucesso!</span>
+  </p>
+  <mat-progress-bar *ngIf="upload$ | async as upload" [mode]="upload.state == 'DONE' ? 'determinate' : 'indeterminate'"
+    [value]="upload.progress">
+  </mat-progress-bar>
+  <br>
   <div class="file-input">
-    <mat-label>File</mat-label>
     <button mat-raised-button (click)="fileInput.click()">
-      {{ file ? file.name : 'Select' }}
+      {{ file ? file.name : 'Selecionar aquivo' }}
     </button>
     <input hidden type="file" #fileInput (change)="onFileInput(fileInput.files)" />
-    <button [disabled]="!file" type="submit" mat-raised-button color="primary" (click)="onSubmit()">
-      Submit
-    </button>
   </div>
-  <mat-progress-bar *ngIf="upload$ | async as download" [mode]="download.state == 'PENDING' ? 'buffer' : 'determinate'"
-    [value]="download.progress">
-  </mat-progress-bar>
+  <mat-card-actions>
+    <button [disabled]="!file" type="submit" mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+  </mat-card-actions>
 </mat-card>
