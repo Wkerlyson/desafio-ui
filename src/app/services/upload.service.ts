@@ -13,6 +13,7 @@ export class UploadService {
     upload(file: File): Observable<Upload> {
         const data = new FormData();
         data.append('file', file);
+
         return this.http
             .post(this.endpoint, data, {
                 reportProgress: true,
