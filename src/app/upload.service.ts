@@ -11,9 +11,9 @@ export class UploadService {
         const data = new FormData();
         data.append('file', file);
         return this.http
-            .post('http://localhost:8080/agentes', data, {
+            .post('http://localhost:8080/v1/agente', data, {
                 reportProgress: true,
-                observe: 'events'
+                observe: 'events',
             })
             .pipe(upload());
     }
